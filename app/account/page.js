@@ -1,11 +1,14 @@
+import { auth } from "../_lib/auth";
+
 export const metadata = {
   title: "Guest Area",
 };
 
-function page() {
+async function page() {
+  const session = await auth();
   return (
     <div>
-      <h1>Account</h1>
+      <h1>Welcome, {session.user.name}</h1>
     </div>
   );
 }
